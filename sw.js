@@ -1,6 +1,6 @@
 // La app debe abrir sin señal en el local del show: responde desde caché y
 // actualiza en segundo plano, de modo que los cambios llegan en la siguiente apertura.
-const CACHE = 'pulso-v1';
+const CACHE = 'pulso-v2';
 const FILES = [
   './',
   'index.html',

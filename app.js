@@ -82,7 +82,7 @@ function homeView() {
       <button class="btn primary" data-action="new-setlist">Nuevo setlist</button>
       <button class="btn" data-action="import-new">Importar lista</button>
     </div>
-    ${rows ? `<ul class="list">${rows}</ul>` : `<p class="empty"><strong>Aún no hay setlists</strong>Crea uno o importa la lista que te enviaron.</p>`}`;
+    ${rows ? `<ul class="list">${rows}</ul>` : `<p class="empty"><strong>Aún no hay setlists</strong>Crea un setlist para empezar a agregar canciones, o importa la lista que te enviaron.</p>`}`;
 }
 
 function songRow(song) {
