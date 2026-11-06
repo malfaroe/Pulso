@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pulso</title>
+  <meta name="description" content="Setlists con el pulso de cada canción para el baterista.">
+  <meta name="theme-color" content="#141210">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Pulso">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app"></main>
+
+  <dialog id="song-dialog">
+    <form method="dialog" id="song-form">
+      <h2 id="song-title">Canción</h2>
+      <label>Nombre
+        <input id="song-name" required maxlength="120" autocomplete="off">
+      </label>
+      <label for="song-bpm">Pulso (BPM)</label>
+      <div class="stepper">
+        <button type="button" data-step="-1" aria-label="Bajar un BPM">−</button>
+        <input id="song-bpm" type="number" inputmode="numeric" min="20" max="300" step="1" placeholder="—" aria-label="Pulso en BPM">
+        <button type="button" data-step="1" aria-label="Subir un BPM">+</button>
+      </div>
+      <label>Compás
+        <select id="song-sig"></select>
+      </label>
+      <div class="actions">
+        <button type="submit" class="primary" value="save">Guardar</button>
+        <button type="submit" id="song-another" value="another">Guardar y agregar otra</button>
+        <button type="button" data-close>Cancelar</button>
+        <button type="button" id="song-delete" class="danger">Eliminar canción</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="import-dialog">
+    <form method="dialog" id="import-form">
+      <h2>Importar canciones</h2>
+      <label id="import-name-field">Nombre del setlist
+        <input id="import-name" maxlength="80" autocomplete="off">
+      </label>
+      <label>Pega la lista, una canción por línea
+        <textarea id="import-text" rows="8" placeholder="Canción uno&#10;Canción dos&#10;Canción tres"></textarea>
+      </label>
+      <label class="file">o elige un archivo .txt
+        <input id="import-file" type="file" accept=".txt,text/plain">
+      </label>
+      <p id="import-count" class="hint" aria-live="polite"></p>
+      <div class="actions">
+        <button type="submit" class="primary" id="import-go" value="go" disabled>Importar</button>
+        <button type="button" data-close>Cancelar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="name-dialog">
+    <form method="dialog" id="name-form">
+      <h2 id="name-title">Nuevo setlist</h2>
+      <label>Nombre
+        <input id="name-input" required maxlength="80" autocomplete="off">
+      </label>
+      <div class="actions">
+        <button type="submit" class="primary" value="save">Guardar</button>
+        <button type="button" data-close>Cancelar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
